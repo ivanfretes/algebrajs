@@ -4,6 +4,6 @@
 
 ## Ecuacion General 
 
-<img src="img/43.gif">
+<center><img src="img/43.gif"><center>
 
 ## Implementacion
