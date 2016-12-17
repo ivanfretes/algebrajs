@@ -5,11 +5,11 @@ $(document).on("ready", function(){
     // por ende la longitud representa el punto x
     
     
-    
     // Retorna la ecuacion de la recta, de los puntos
     // Por defecto retorna ecuacion general de la recta
     function generarEcuacion(coordenada1, coordenada2){
         // Hayamos pendiende te la ecuacion
+        
         my = (coordenada2.y - coordenada1.y);
         mx = (coordenada2.x - coordenada1.x);
         mx = modificarSigno(mx);
@@ -75,19 +75,22 @@ $(document).on("ready", function(){
         
         ya = ra.b.substr(0,ra.b.length - 1) * tempb;
         yb = rb.b.substr(0,rb.b.length - 1) * tempa;
+       
         
         ca = ra.c * tempb;
         cb = rb.c * tempa;
         
+        console.log*
         // Realizamos las operaciones de suma, con el fin de despejar la y
         
         yResult = ya + yb;
         cResult = ca + cb;
         yResult = (cResult / yResult); // Variable y
-        
+        console.log(yResult); 
         // Remplazamos el remplazo de la variable y en la primera ecuacion
         
         xResult = (ca - (ya * yResult)) / xa;
+       
         
     }
     
@@ -97,17 +100,13 @@ $(document).on("ready", function(){
     
     
     rA = generarEcuacion(
-                    {x: 8, y: 9}, 
-                    {x: 17, y: 14 });
-    
-    rc = generarEcuacion(
-                    {x:  -57.49733984470367, y: -25.3026209052533}, 
-                    {x: -57.498372495174415, y: -25.303062233688724 });
+                    {x: 3, y: 2}, 
+                    {x: -4, y: -6 });
     
     
     rB = generarEcuacion(
-                    {x: -57.49825716018677, y: -25.302400240432938}, 
-                    {x: -57.497524917125695, y: -25.303265923193795} );
+                    {x: -6, y: 2}, 
+                    {x: 1, y: -1} );
     
     
     generarPuntoDeInserccion(rA,rB);
