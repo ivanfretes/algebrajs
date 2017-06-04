@@ -29,4 +29,4 @@ Qua.Math es una pequeña libreria que permite realizar operaciones básicas de l
 ### Utilidad / Test
 Prueba respecto a la intersección de rectas, Para el test necesita en este caso la libreria Drawing de Google Maps. 
 
-<center><img src="img/en-google-maps.jpg" width="640px"></center>
+<center><img src="img/Screenshot-21.png" width="640px"></center>
