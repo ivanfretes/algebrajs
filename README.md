@@ -36,7 +36,7 @@ Es una pequeña libreria que permite realizar operaciones básicas de la Geometr
 ### Utilidad / Test
 Prueba respecto a la intersección de rectas, Para el test necesita en este caso la libreria Drawing de Google Maps. 
 
-<center><img src="img/assets/google_maps_ground.png" width="640px"></center>
+<center><img src="assets/img/google_maps_ground.png" width="640px"></center>
 
 
 *English*
