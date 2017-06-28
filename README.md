@@ -1,5 +1,7 @@
-# Qua.Math
-Qua.Math es una pequeña libreria que permite realizar operaciones básicas de la Geometria Analitica
+# basic geometry / geometria básica
+Es una pequeña libreria que permite realizar operaciones básicas de la Geometria
+
+*Español*
 
 ### Alcance ###
 
@@ -13,11 +15,14 @@ Qua.Math es una pequeña libreria que permite realizar operaciones básicas de l
 * Angulo entre dos rectas
 * Complemento y Sumplemento de un angulo
 
+
 ### Ecuacion General 
 
-<center><img src="img/43.gif"><center>
+<center><img src="assets/img/43.gif"><center>
 
 ### Implementacion
+
+*Javascript*
 
 
     // Puntos Iniciales y Finales de la Recta
@@ -26,7 +31,12 @@ Qua.Math es una pequeña libreria que permite realizar operaciones básicas de l
         {x: -57.552150785923, y:-25.338130579204833}
     );
 
+*Python*
+
 ### Utilidad / Test
 Prueba respecto a la intersección de rectas, Para el test necesita en este caso la libreria Drawing de Google Maps. 
 
-<center><img src="img/Screenshot-21.png" width="640px"></center>
+<center><img src="img/assets/google_maps_ground.png" width="640px"></center>
+
+
+*English*
