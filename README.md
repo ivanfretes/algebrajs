@@ -1,9 +1,9 @@
-# basic geometry / geometria básica
+# algebrajs / geometria básica
 Es una pequeña libreria que permite realizar operaciones básicas de la Geometria
 
 *Español*
 
-### Alcance ###
+### Aplicaciones
 
 * Ecuación de la Recta
 * Intersección de Rectas
@@ -31,10 +31,6 @@ Es una pequeña libreria que permite realizar operaciones básicas de la Geometr
         {x: -57.552150785923, y:-25.338130579204833}
     );
 
-*Python*
-
-### Utilidad / Test
-Prueba respecto a la intersección de rectas, Para el test necesita en este caso la libreria Drawing de Google Maps. 
 
 <center><img src="assets/img/google_maps_ground.png" width="640px"></center>
 
