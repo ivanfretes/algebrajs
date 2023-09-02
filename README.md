@@ -18,7 +18,7 @@ Es una pequeña libreria que permite realizar operaciones básicas de la Geometr
 
 ### Ecuacion General 
 
-<center><img src="assets/img/43.gif"><center>
+<center><img src="docs/assets/img/43.gif"><center>
 
 ### Implementacion
 
@@ -26,13 +26,13 @@ Es una pequeña libreria que permite realizar operaciones básicas de la Geometr
 
 
     // Puntos Iniciales y Finales de la Recta
-    generarEcuacion(
-        {x: -57.5516653060913, y: -25.336896667846172 },
-        {x: -57.552150785923, y:-25.338130579204833}
+    genLinearEcuation(
+        [-57.5516653060913, y: -25.336896667846172 ],
+        [-57.552150785923, y:-25.338130579204833]
     );
 
 
-<center><img src="assets/img/google_maps_ground.png" width="640px"></center>
+<center><img src="docs/assets/img/google_maps_ground.png" width="640px"></center>
 
 
 *English*
