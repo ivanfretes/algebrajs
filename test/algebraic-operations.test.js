@@ -1,5 +1,6 @@
 import { genLinearEcuation } from "../src/index";
 
-test("Returns about-us for english language", () => {
-    expect(2).toEqual(1);
+test("generate an linear ecuation", () => {
+   const ecuation = genLinearEcuation([6,4],[2,6])
+   expect(ecuation).toEqual([2,-4,-28]);
 });
