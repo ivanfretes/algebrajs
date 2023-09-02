@@ -1,5 +1,5 @@
-import { genLinearEcuation } from "@/index.js";
+import { genLinearEcuation } from "../src/index";
 
 test("Returns about-us for english language", () => {
-    expect(getAboutUsLink("en-US")).toBe("/about-us");
+    expect(2).toEqual(1);
 });
