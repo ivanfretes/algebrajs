@@ -5,7 +5,7 @@
   "description": "A simple way to interact with linear equation",
   "main": "src/index.js",
   "scripts": {
-    "test": "test src/index.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
