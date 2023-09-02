@@ -15,8 +15,7 @@ Libreria que permite realizar operaciones básicas de la Geometria
 
 
 ### Ecuacion General 
-
-<center><img src="docs/assets/img/43.gif"><center>
+<img src="docs/assets/img/43.gif">
 
 ### Implementacion
 
@@ -28,6 +27,3 @@ Libreria que permite realizar operaciones básicas de la Geometria
       [-57.552150785923, 25.338130579204833]
    );
 ```
-
-<center><img src="docs/assets/img/google_maps_ground.png" width="640px"></center>
-
