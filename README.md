@@ -1,10 +1,8 @@
-# algebrajs / geometria básica
-Es una pequeña libreria que permite realizar operaciones básicas de la Geometria
+# linear-equation-js
 
-*Español*
+Libreria que permite realizar operaciones básicas de la Geometria
 
-### Aplicaciones
-
+### Alcance
 * Ecuación de la Recta
 * Intersección de Rectas
 * Punto Medio
@@ -22,17 +20,14 @@ Es una pequeña libreria que permite realizar operaciones básicas de la Geometr
 
 ### Implementacion
 
-*Javascript*
+```javascript
 
-
-    // Puntos Iniciales y Finales de la Recta
-    genLinearEcuation(
-        [-57.5516653060913, y: -25.336896667846172 ],
-        [-57.552150785923, y:-25.338130579204833]
-    );
-
+   // Example of generate an equation from two point
+   genLinearEcuation(
+      [-57.5516653060913, -25.336896667846172 ],
+      [-57.552150785923, 25.338130579204833]
+   );
+```
 
 <center><img src="docs/assets/img/google_maps_ground.png" width="640px"></center>
 
-
-*English*
