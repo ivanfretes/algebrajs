@@ -1,9 +1,9 @@
 /**
- * @param {array} point1 # i.e [1,2] - Init point of ecuation
- * @param {array} point2 i.e [3,4] - End point of ecuation
- * @return {array} ecuation =>  [myX, ,mxY, constant]
+ * @param {array} point1 : i.e [1,2] - Init point of Equation
+ * @param {array} point2 : i.e [3,4] - End point of Equation
+ * @return {array} : [constantX, ,constantY, C]
  */
-export const genLinearEcuation = (point1,point2) => {
+export const genLinearEquation = (point1,point2) => {
    const [x1, y1] = point1;
    const [x2, y2] = point2;
 
@@ -16,11 +16,12 @@ export const genLinearEcuation = (point1,point2) => {
 
 /**
  * Get the slop value
+ * 
  * @param {number} x1
  * @param {number} y1
  * @param {number} x2
  * @param {number} y2 
- * @return {Object} - with slote m, mx and my
+ * @return {Object} : with slote m, mx and my
  */
 export const genSlopeValues = (x1,y1,x2,y2) => {
    const my = y2 - y1
@@ -31,25 +32,51 @@ export const genSlopeValues = (x1,y1,x2,y2) => {
 
 
 /**
- * Return the point of intersention in two Straigh / linear ecuation
- * @param {array} -r1 
- * @param {array} -r2
+ * Return the point of intersention in two Straigh / linear Equation
+ * @param {array} r1 : linear Equation
+ * @param {array} r2 :linear Equation
  * @return {array} [ x, y ]
  */
 export const getPointOfIntersection = (r1, r2) => {
-   const [ x1,y1,c1 ] = r1.map(element => element * r2[0])
-   const [ x2,y2,c2 ] = r2.map(element => element * -r1[0])
+   r1 = getPositiveEquation(r1)
+   r2 = getPositiveEquation(r2)
+
+   const [ x1,y1,c1 ] = multiplyLinearEquation(r1, r2[0])
+   const [ x2,y2,c2 ] = multiplyLinearEquation(r2, r1[0] * -1)
 
    const y = -(c1 + c2) / (y1 + y2)
-   const x = - (c1 - (y1 * y)) / x1
-   return [x, y];
+   const x = - ((y1 * y) + c1) / x1
+   return [x, y]
 }
 
+/**
+ * It ensures that a line is negative or positive, in order to cancel
+ * the variable
+ * 
+ * @param {array} r : linear equation
+ * @param {number} multiplier : is a x value element
+ * @param {array} positive: If equation should be positive, by default true
+ */
+export const multiplyLinearEquation = (r, multiplier) => {
+   r = getPositiveEquation(r)
+
+   return r.map(element => element * multiplier)   
+}
+
+/**
+ * Add inverse multiply for equation, then x is positive
+ */
+export const getPositiveEquation = (r) => {
+   const [first_element] = r;
+   if (first_element < 0)
+      return r.map(element => element * -1)
+   return r
+}
 
 /**
  * From the formula m = -a / b
- * @param {array} r - straigh / linear ecuation i.e [myX, ,mxY, constant] 
- * @return {number} - slope
+ * @param {array} r : straigh / linear Equation i.e [myX, ,mxY, constant] 
+ * @return {number} : slope
  */
 export const getStraighSlope = ([a,b]) => {
    return - a / b
@@ -68,17 +95,6 @@ export const getSlopeAngle = (slopeValue) => {
 
 
 /**
- * Get slope angle with passed the x and y params
- * @param {number} x
- * @param {number} y
- * @return {number}
- */
-export const getSlopeAngle2 = (x, y) => {
-   return (Math.atan2(y, x) * 180) / Math.PI
-}
-
-
-/**
  * Get the distance between two points
  * @param {number} x - only one value or substrac operation (x2 - x1) 
  * @param {number} y - only one value or substrac operation (y2 - y1)  
@@ -90,10 +106,12 @@ export const getDistanceBetweenTwoPoints = (x, y) => {
 
 
 export default {
-   genLinearEcuation,
+   genLinearEquation,
    genSlopeValues,
    getDistanceBetweenTwoPoints,
-   getSlopeAngle2,
    getSlopeAngle,
-   getStraighSlope
+   getStraighSlope,
+   multiplyLinearEquation,
+   getPositiveEquation,
+   getDistanceBetweenTwoPoints
 }
