@@ -1,0 +1,32 @@
+{
+  "name": "linear-equation",
+  "version": "1.0.1",
+  "type": "module",
+  "description": "A simple way to interact with linear equation",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanfretes/linear-equation-js.git"
+  },
+  "keywords": [
+    "linear-equation",
+    "math",
+    "algebra",
+    "geometry"
+  ],
+  "author": "Ivan Fretes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivanfretes/linear-equation-js/issues"
+  },
+  "homepage": "https://github.com/ivanfretes/linear-equation-js#readme",
+  "devDependencies": {
+    "@babel/core": "^7.22.11",
+    "@babel/preset-env": "^7.22.14",
+    "babel-jest": "^29.6.4",
+    "jest": "^29.6.4"
+  }
+}
