@@ -57,7 +57,7 @@ export const getStraighSlope = ([a,b]) => {
 
 
 /**
- * Get slope angle with slope value
+ * Get slope angle with passed the slope value
  * @param {number} slopeValue
  * @return {number}
  */
@@ -68,7 +68,7 @@ export const getSlopeAngle = (slopeValue) => {
 
 
 /**
- * Get slope angle with x and y params
+ * Get slope angle with passed the x and y params
  * @param {number} x
  * @param {number} y
  * @return {number}
