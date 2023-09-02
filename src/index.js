@@ -95,17 +95,6 @@ export const getSlopeAngle = (slopeValue) => {
 
 
 /**
- * Get slope angle with passed the x and y params
- * @param {number} x
- * @param {number} y
- * @return {number}
- */
-export const getSlopeAngle2 = (x, y) => {
-   return (Math.atan2(y, x) * 180) / Math.PI
-}
-
-
-/**
  * Get the distance between two points
  * @param {number} x - only one value or substrac operation (x2 - x1) 
  * @param {number} y - only one value or substrac operation (y2 - y1)  
@@ -120,9 +109,9 @@ export default {
    genLinearEquation,
    genSlopeValues,
    getDistanceBetweenTwoPoints,
-   getSlopeAngle2,
    getSlopeAngle,
    getStraighSlope,
-   //multiplyLinearEquation,
-   getPositiveEquation
+   multiplyLinearEquation,
+   getPositiveEquation,
+   getDistanceBetweenTwoPoints
 }
