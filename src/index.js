@@ -41,14 +41,14 @@ export const getPointOfIntersection = (r1, r2) => {
    const [x1,y1,c1] = r1.map(element => element * r2[0])
    const [x2,y2,c2] = r2.map(element => element * -r1[0])
 
-   const y = -(c1 + c2)/(y1 + y2)
-   const x = - (c1 - (y1*y)) / x1
+   const y = -(c1 + c2) / (y1 + y2)
+   const x = - (c1 - (y1 * y)) / x1
    return [x, y];
 }
 
 /**
  * From the formula m = -a / b
- * @param {array} r -Straigh / linear ecuation
+ * @param {array} r - straigh / linear ecuation i.e [myX, ,mxY, constant]
  * 
  * @return {number} - slope
  */
@@ -82,8 +82,8 @@ export const getSlopeAngle2 = (x, y) => {
 /**
  * Get the distance between two points
  * 
- * @param {number} x - only one value or substrac operation (x1 - x2) 
- * @param {number} y - only one value or substrac operation (y1 - y2) 
+ * @param {number} x - only one value or substrac operation (x2 - x1) 
+ * @param {number} y - only one value or substrac operation (y2 - y1) 
  * 
  * @return {number}
  */
@@ -91,7 +91,12 @@ export const getDistanceBetweenTwoPoints = (x, y) => {
    return Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
 }
 
+
 export default {
    genLinearEcuation,
-   genSlopeValue
+   genSlopeValue,
+   getDistanceBetweenTwoPoints,
+   getSlopeAngle2,
+   getSlopeAngle,
+   getStraighSlope
 }
