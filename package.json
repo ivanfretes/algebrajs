@@ -3,10 +3,10 @@
   "version": "1.0.2",
   "type": "module",
   "description": "A simple way to interact with linear equation",
-  "main": "src",
+  "main": "index.js",
   "files": [
       "./package.json",
-      "./src"
+      "./src/index.js"
   ],
   "scripts": {
     "test": "jest",
