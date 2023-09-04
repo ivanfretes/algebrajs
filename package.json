@@ -1,6 +1,6 @@
 {
   "name": "linear-equation",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "description": "A simple way to interact with linear equation",
   "main": "index.js",
