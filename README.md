@@ -39,7 +39,9 @@ $ npm i linear-equation
    console.log(`${a}x + ${b}y  + ${c} `)
 ```
 
-
+### Todo
+* Improve docs
+* Add new features
 
 
 
