@@ -1,12 +1,11 @@
 {
   "name": "linear-equation",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "description": "A simple way to interact with linear equation",
   "main": "index.js",
   "files": [
-      "./package.json",
-      "./src/index.js"
+      "./dist"
   ],
   "scripts": {
     "test": "jest",
@@ -21,7 +20,9 @@
     "linear-equation",
     "math",
     "algebra",
-    "geometry"
+    "geometry",
+    "slope",
+    "angle"
   ],
   "engines": {
     "node": ">= 16"
