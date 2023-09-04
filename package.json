@@ -1,12 +1,17 @@
 {
   "name": "linear-equation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "A simple way to interact with linear equation",
-  "main": "index.js",
+  "main": "src",
+  "files": [
+      "./package.json",
+      "./src"
+  ],
   "scripts": {
     "test": "jest",
-    "build": "babel src -d lib"
+    "build": "babel src -d dist",
+    "publish": "./scripts/publish.sh"
   },
   "repository": {
     "type": "git",
