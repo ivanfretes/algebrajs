@@ -50,12 +50,10 @@ export const getPointOfIntersection = (r1, r2) => {
 }
 
 /**
- * It ensures that a line is negative or positive, in order to cancel
- * the variable
+ * Multiply each element of the straigth by multiplier
  * 
  * @param {array} r : linear equation
  * @param {number} multiplier : is a x value element
- * @param {array} positive: If equation should be positive, by default true
  */
 export const multiplyLinearEquation = (r, multiplier) => {
    r = getPositiveEquation(r)
