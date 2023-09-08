@@ -23,7 +23,7 @@ export const genLinearEquation = (point1,point2) => {
  * @param {number} y2 
  * @return {Object} : with slote m, mx and my
  */
-export const genSlopeValues = (x1,y1,x2,y2) => {
+export const genSlopeValues = ([x1,y1],[x2,y2]) => {
    const my = y2 - y1
    const mx = x2 - x1
    const m = my / mx

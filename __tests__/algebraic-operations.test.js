@@ -11,8 +11,8 @@ import {
 
 describe('algebraic operations', () => { 
    it("genLinearEquation: generate an linear equation", () => {
-      const equation = genLinearEquation([6,4],[2,6])
-      expect(equation).toEqual([2,-4,-28]);
+      const equation = genLinearEquation([3,2],[-1,-2])
+      expect(equation).toEqual([1,-1,-1]);
    })
 
    it("genSlopeValues: generate slope values", () => {
