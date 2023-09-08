@@ -20,7 +20,7 @@ describe('algebraic operations', () => {
       expect(slopeValues).toMatchObject({m: 2, my: 4, mx:2})
    })
 
-   it('getStraighSlop: eget straight slope points', () => {
+   it('getStraighSlop: get straight slope points', () => {
       const equation = genLinearEquation([6,4],[2,6])
       const point = getStraighSlope(equation)
 

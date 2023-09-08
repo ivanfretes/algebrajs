@@ -7,7 +7,7 @@ export const genLinearEquation = (point1,point2) => {
    const [x1, y1] = point1;
    const [x2, y2] = point2;
 
-   const {m, mx, my} = genSlopeValues([x1, y1], [x2, y2])
+   const {mx, my} = genSlopeValues([x1, y1], [x2, y2])
 
    const constant = ((mx * y1) - (my * x1))
    return [my, mx, constant]
@@ -17,10 +17,8 @@ export const genLinearEquation = (point1,point2) => {
 /**
  * Get the slop value
  * 
- * @param {number} x1
- * @param {number} y1
- * @param {number} x2
- * @param {number} y2 
+ * @param {array} [x,y]
+ * @param {array} [x,y]
  * @return {Object} : with slote m, mx and my
  */
 export const genSlopeValues = ([x1,y1],[x2,y2]) => {
