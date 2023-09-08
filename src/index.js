@@ -7,9 +7,14 @@ export const genLinearEquation = (point1,point2) => {
    const [x1, y1] = point1;
    const [x2, y2] = point2;
 
-   const {mx, my} = genSlopeValues([x1, y1], [x2, y2])
+   let {mx, my} = genSlopeValues([x1, y1], [x2, y2])
+   let constant = ((mx * y1) - (my * x1))
 
-   const constant = ((mx * y1) - (my * x1))
+   if (mx < 0) {
+      mx *= -1
+      constant *= -1
+   }
+
    return [my, mx, constant]
 }
 

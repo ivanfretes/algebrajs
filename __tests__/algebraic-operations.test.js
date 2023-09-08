@@ -10,14 +10,19 @@ import {
 } from "../src/index";
 
 describe('algebraic operations', () => { 
-   it("genLinearEquation: generate an linear equation", () => {
-      const equation = genLinearEquation([6,4],[2,6])
-      expect(equation).toEqual([2,-4,-28]);
-   })
-
    it("genSlopeValues: generate slope values", () => {
       const slopeValues = genSlopeValues([1,3],[3,7])
       expect(slopeValues).toMatchObject({m: 2, my: 4, mx:2})
+   })
+
+   it("genSlopeValues: generate slope values with fraccional pending", () => {
+      const slopeValues = genSlopeValues([6,4],[2,6])
+      expect(slopeValues).toMatchObject({m: -1/2, my: 2, mx:-4})
+   })
+
+   it("genLinearEquation: generate an linear equation", () => {
+      const equation = genLinearEquation([6,4],[2,6])
+      expect(equation).toEqual([2,-4,-28]);
    })
 
    it('getStraighSlop: get straight slope points', () => {
