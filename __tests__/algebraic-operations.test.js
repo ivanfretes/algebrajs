@@ -11,13 +11,13 @@ import {
 
 describe('algebraic operations', () => { 
    it("genLinearEquation: generate an linear equation", () => {
-      const equation = genLinearEquation([3,2],[-1,-2])
-      expect(equation).toEqual([1,-1,-1]);
+      const equation = genLinearEquation([6,4],[2,6])
+      expect(equation).toEqual([2,-4,-28]);
    })
 
    it("genSlopeValues: generate slope values", () => {
-      const slopeValues = genSlopeValues(6,4,2,6)
-      expect(slopeValues).toMatchObject({m: -0.5, my: 2, mx:-4})
+      const slopeValues = genSlopeValues([1,3],[3,7])
+      expect(slopeValues).toMatchObject({m: 2, my: 4, mx:2})
    })
 
    it('getStraighSlop: eget straight slope points', () => {
