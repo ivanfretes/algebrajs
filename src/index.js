@@ -1,21 +1,15 @@
 /**
  * @param {array} point1 : i.e [1,2] - Init point of Equation
  * @param {array} point2 : i.e [3,4] - End point of Equation
- * @return {array} : [constantX, ,constantY, C]
+ * @return {array} : [constantX, ,constantY, C] => myX + mxY + constant
  */
 export const genLinearEquation = (point1,point2) => {
    const [x1, y1] = point1;
    const [x2, y2] = point2;
 
    let {mx, my} = genSlopeValues([x1, y1], [x2, y2])
-   let constant = ((mx * y1) - (my * x1))
-
-   if (mx < 0) {
-      mx *= -1
-      constant *= -1
-   }
-
-   return [my, mx, constant]
+   const constant = (mx * y1) - (my * x1)
+   return [my * -1, mx, constant]
 }
 
 

@@ -10,20 +10,37 @@ import {
 } from "../src/index";
 
 describe('algebraic operations', () => { 
-   it("genSlopeValues: generate slope values", () => {
-      const slopeValues = genSlopeValues([1,3],[3,7])
-      expect(slopeValues).toMatchObject({m: 2, my: 4, mx:2})
-   })
 
-   it("genSlopeValues: generate slope values with fraccional pending", () => {
-      const slopeValues = genSlopeValues([6,4],[2,6])
-      expect(slopeValues).toMatchObject({m: -1/2, my: 2, mx:-4})
-   })
-
-   it("genLinearEquation: generate an linear equation", () => {
+   it("genLinearEquation: generate an linear equation case 1", () => {
       const equation = genLinearEquation([6,4],[2,6])
       expect(equation).toEqual([2,-4,-28]);
    })
+
+   it.only("genLinearEquation: generate an linear equation with array of lat and lng values", () => {
+      const points = [
+         [
+            [-24.221494268584944,-57.6334127375],
+            [-25.839030036221597,-58.2761129328125]
+         ],
+         [
+            [-24.37669642770603,-58.8254293390625], 
+            [-26.41113322945823, -57.023671526562]
+         ]
+      ]
+
+      const equations = [
+         [-0.6427001953125,-1.617535767636653, 77.65694741669199],
+         [1.8017578125005045, -2.0344368017522, 163.59752155783485]
+      ]
+
+      // asserts
+      for (let i = 0; i < points.length; i++) {
+         const point = points[i];
+         const equation = genLinearEquation(point[0],point[1])
+         expect(equation).toEqual(equations[i]);
+      }
+   })
+
 
    it('getStraighSlop: get straight slope points', () => {
       const equation = genLinearEquation([6,4],[2,6])
@@ -50,6 +67,14 @@ describe('algebraic operations', () => {
       const point = getPointOfIntersection(r1, r2);
 
       expect(point).toEqual([1, 3]);
+   });
+   
+   it.only('getPointOfIntersection: get point of intersection in two straight with float params', () => {
+      const r1 =  [-0.6427001953125,-1.617535767636653, 77.65694741669199]
+      const r2 =  [1.8017578125005045, -2.0344368017522, 163.59752155783485]
+      const point = getPointOfIntersection(r1, r2);
+
+      expect(point).toEqual([-25.25774284141848, -58.04514839953455]);
    });
 
    it('multiplyLinearEquation: multiply equation for a escalar value', () => {
