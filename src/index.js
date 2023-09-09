@@ -36,13 +36,10 @@ export const genSlopeValues = ([x1,y1],[x2,y2]) => {
  * @return {array} [ x, y ]
  */
 export const getPointOfIntersection = (r1, r2) => {
-   r1 = getEquationWithPositiveX(r1)
-   r2 = getEquationWithPositiveX(r2)
-
    const [ x1,y1,c1 ] = multiplyLinearEquation(r1, r2[0])
-   const [ ,y2,c2 ] = multiplyLinearEquation(r2, r1[0] * -1)
-   
-   const y = (c1 + c2) / (y1 + y2)
+   const [ x2,y2,c2 ] = multiplyLinearEquation(r2, r1[0] * -1)
+
+   const y = -(c1 + c2) / (y1 + y2)
    const x = - ((y1 * y) + c1) / x1
    return [x, y]
 }
@@ -54,16 +51,18 @@ export const getPointOfIntersection = (r1, r2) => {
  * @param {number} multiplier : is a x value element
  */
 export const multiplyLinearEquation = (r, multiplier) => {
+   r = getPositiveEquation(r)
+
    return r.map(element => element * multiplier)   
 }
 
 /**
  * Add inverse multiply for equation, then x is positive
  */
-export const getEquationWithPositiveX = (r) => {
+export const getPositiveEquation = (r) => {
    const [x] = r;
-   if (x < 0) 
-      return r.map(element => element * - 1)
+   if (x < 0)
+      return r.map(element => element * -1)
    return r
 }
 

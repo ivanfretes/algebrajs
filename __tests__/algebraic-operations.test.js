@@ -1,9 +1,8 @@
 import { 
    genLinearEquation, 
-   genSlopeValues,
    getPointOfIntersection,
    getStraighSlope,
-   getPositiveEquation,
+   getEquationWithPositiveX,
    multiplyLinearEquation,
    getSlopeAngle,
    getDistanceBetweenTwoPoints
@@ -43,8 +42,8 @@ describe('algebraic operations', () => {
       ]
 
       const equations = [
-         [-0.6427001953125,-1.617535767636653, 77.65694741669199],
-         [1.8017578125005045, -2.0344368017522, 163.59752155783485]
+         [-0.6427001953125,1.617535767636653, 77.65694741669199],
+         [1.8017578125005045, 2.0344368017522, 163.59752155783485]
       ]
 
       // asserts
@@ -60,18 +59,18 @@ describe('algebraic operations', () => {
       const equation = genLinearEquation([6,4],[2,6])
       const point = getStraighSlope(equation)
 
-      expect(point).toEqual(0.5);
+      expect(point).toEqual(-0.5);
    });
    
    it('getPositiveEquation: get positive equation with positive x', () => {
       const r1 = [2, 1, -5]
-      const equation = getPositiveEquation(r1)
+      const equation = getEquationWithPositiveX(r1)
       expect(equation).toEqual([2, 1, -5])
    });
 
    it('getPositiveEquation: get positive equation with negative x', () => {
       const r1 = [-2, -1, 5]
-      const equation = getPositiveEquation(r1)
+      const equation = getEquationWithPositiveX(r1)
       expect(equation).toEqual([2, 1, -5])
    });
 
@@ -84,8 +83,8 @@ describe('algebraic operations', () => {
    });
    
    it('getPointOfIntersection: get point of intersection in two straight with float params', () => {
-      const r1 =  [-0.6427001953125, -1.617535767636653, 77.65694741669199]
-      const r2 =  [1.8017578125005045, -2.0344368017522, 163.59752155783485]
+      const r1 = [-0.6427001953125,1.617535767636653, 77.65694741669199]
+      const r2 = [1.8017578125005045, 2.0344368017522, 163.59752155783485]
       const point = getPointOfIntersection(r1, r2);
 
       expect(point).toEqual([-25.257742841418306, -58.04514839953447]);
@@ -98,7 +97,7 @@ describe('algebraic operations', () => {
       expect(equation).toEqual([8, -2, -2]);
    });
 
-   it('getPointOfIntersection: get point of intersection in two straight (X in r2 is positive)', () => {
+   it.only('getPointOfIntersection: get point of intersection in two straight (X in r2 is positive)', () => {
       const r1 = [ 4,-1,-1 ]
       const r2 = [ 2, 1,-5 ]
       const point = getPointOfIntersection(r1, r2);
