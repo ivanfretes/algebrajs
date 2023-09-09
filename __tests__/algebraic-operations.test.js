@@ -97,7 +97,7 @@ describe('algebraic operations', () => {
       expect(equation).toEqual([8, -2, -2]);
    });
 
-   it.only('getPointOfIntersection: get point of intersection in two straight (X in r2 is positive)', () => {
+   it('getPointOfIntersection: get point of intersection in two straight (X in r2 is positive)', () => {
       const r1 = [ 4,-1,-1 ]
       const r2 = [ 2, 1,-5 ]
       const point = getPointOfIntersection(r1, r2);
