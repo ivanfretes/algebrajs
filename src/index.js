@@ -106,6 +106,6 @@ export default {
    getSlopeAngle,
    getStraighSlope,
    multiplyLinearEquation,
- getEquationWithPositiveX,
+   getEquationWithPositiveX,
    getDistanceBetweenTwoPoints
 }
