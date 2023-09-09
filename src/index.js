@@ -6,10 +6,11 @@
 export const genLinearEquation = (point1,point2) => {
    const [x1, y1] = point1;
    const [x2, y2] = point2;
-
-   let {mx, my} = genSlopeValues([x1, y1], [x2, y2])
-   const constant = (mx * y1) - (my * x1)
-   return [my * -1, mx, constant]
+   
+   const {a, b} = genSlopeValues([x1, y1], [x2, y2])
+   const constant = (a * x1) - (b * y1)
+   
+   return [a, b * -1, constant * -1]
 }
 
 
@@ -18,13 +19,13 @@ export const genLinearEquation = (point1,point2) => {
  * 
  * @param {array} [x,y]
  * @param {array} [x,y]
- * @return {Object} : with slote m, mx and my
+ * @return {Object} : with slote m, a and b
  */
 export const genSlopeValues = ([x1,y1],[x2,y2]) => {
-   const my = y2 - y1
-   const mx = x2 - x1
-   const m = my / mx
-   return {m, mx, my}
+   const a = y2 - y1
+   const b = x2 - x1
+   const m = a / b
+   return {m, a, b}
 }
 
 
@@ -35,13 +36,13 @@ export const genSlopeValues = ([x1,y1],[x2,y2]) => {
  * @return {array} [ x, y ]
  */
 export const getPointOfIntersection = (r1, r2) => {
-   r1 = getPositiveEquation(r1)
-   r2 = getPositiveEquation(r2)
+   r1 = getEquationWithPositiveX(r1)
+   r2 = getEquationWithPositiveX(r2)
 
    const [ x1,y1,c1 ] = multiplyLinearEquation(r1, r2[0])
-   const [ x2,y2,c2 ] = multiplyLinearEquation(r2, r1[0] * -1)
-
-   const y = -(c1 + c2) / (y1 + y2)
+   const [ ,y2,c2 ] = multiplyLinearEquation(r2, r1[0] * -1)
+   
+   const y = (c1 + c2) / (y1 + y2)
    const x = - ((y1 * y) + c1) / x1
    return [x, y]
 }
@@ -53,24 +54,22 @@ export const getPointOfIntersection = (r1, r2) => {
  * @param {number} multiplier : is a x value element
  */
 export const multiplyLinearEquation = (r, multiplier) => {
-   r = getPositiveEquation(r)
-
    return r.map(element => element * multiplier)   
 }
 
 /**
  * Add inverse multiply for equation, then x is positive
  */
-export const getPositiveEquation = (r) => {
-   const [first_element] = r;
-   if (first_element < 0)
-      return r.map(element => element * -1)
+export const getEquationWithPositiveX = (r) => {
+   const [x] = r;
+   if (x < 0) 
+      return r.map(element => element * - 1)
    return r
 }
 
 /**
  * From the formula m = -a / b
- * @param {array} r : straigh / linear Equation i.e [myX, ,mxY, constant] 
+ * @param {array} r : straigh / linear Equation i.e [aX, ,bY, constant] 
  * @return {number} : slope
  */
 export const getStraighSlope = ([a,b]) => {
@@ -107,6 +106,6 @@ export default {
    getSlopeAngle,
    getStraighSlope,
    multiplyLinearEquation,
-   getPositiveEquation,
+ getEquationWithPositiveX,
    getDistanceBetweenTwoPoints
 }

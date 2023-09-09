@@ -11,12 +11,26 @@ import {
 
 describe('algebraic operations', () => { 
 
-   it("genLinearEquation: generate an linear equation case 1", () => {
-      const equation = genLinearEquation([6,4],[2,6])
-      expect(equation).toEqual([2,-4,-28]);
+   it("genLinearEquation: generate a linear equation with integer points", () => {
+      // setup
+      const points = [
+         [[6,4],[2,6]],
+         [[-24, -57], [-25, -58]],
+      ]
+
+      const equations = [
+         [2,4,-28],
+         [-1,1,33]
+      ]
+
+      for (let i = 0; i < points.length; i++) {
+         const point = points[i];
+         const equation = genLinearEquation(point[0],point[1])
+         expect(equation).toEqual(equations[i]);
+      }
    })
 
-   it.only("genLinearEquation: generate an linear equation with array of lat and lng values", () => {
+   it("genLinearEquation: generate a linear equation with array of lat and lng values", () => {
       const points = [
          [
             [-24.221494268584944,-57.6334127375],
@@ -69,12 +83,12 @@ describe('algebraic operations', () => {
       expect(point).toEqual([1, 3]);
    });
    
-   it.only('getPointOfIntersection: get point of intersection in two straight with float params', () => {
-      const r1 =  [-0.6427001953125,-1.617535767636653, 77.65694741669199]
+   it('getPointOfIntersection: get point of intersection in two straight with float params', () => {
+      const r1 =  [-0.6427001953125, -1.617535767636653, 77.65694741669199]
       const r2 =  [1.8017578125005045, -2.0344368017522, 163.59752155783485]
       const point = getPointOfIntersection(r1, r2);
 
-      expect(point).toEqual([-25.25774284141848, -58.04514839953455]);
+      expect(point).toEqual([-25.257742841418306, -58.04514839953447]);
    });
 
    it('multiplyLinearEquation: multiply equation for a escalar value', () => {
