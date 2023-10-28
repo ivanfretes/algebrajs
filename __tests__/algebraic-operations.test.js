@@ -1,7 +1,7 @@
 import { 
    genLinearEquation, 
    getPointOfIntersection,
-   getStraighSlope,
+   getStraightSlope,
    getEquationWithPositiveX,
    multiplyLinearEquation,
    getSlopeAngle,
@@ -55,9 +55,9 @@ describe('algebraic operations', () => {
    })
 
 
-   it('getStraighSlop: get straight slope points', () => {
+   it('getStraightSlop: get straight slope points', () => {
       const equation = genLinearEquation([6,4],[2,6])
-      const point = getStraighSlope(equation)
+      const point = getStraightSlope(equation)
 
       expect(point).toEqual(-0.5);
    });
@@ -122,5 +122,9 @@ describe('algebraic operations', () => {
    it('getDistanceBetweenTwoPoints: distance with (x, y) to (0,0)', () => {
       const distance = getDistanceBetweenTwoPoints(4, 3)
       expect(distance).toEqual(5)
+   });
+
+   it.only('getIntersectionWithoutStraighttLineProjection  ', () => {
+      
    });
 })

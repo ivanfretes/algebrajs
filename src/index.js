@@ -30,7 +30,7 @@ export const genSlopeValues = ([x1,y1],[x2,y2]) => {
 
 
 /**
- * Return the point of intersention in two Straigh / linear Equation
+ * Return the point of intersention in two Straight / linear Equation
  * @param {array} r1 : linear Equation
  * @param {array} r2 :linear Equation
  * @return {array} [ x, y ]
@@ -72,7 +72,7 @@ export const getEquationWithPositiveX = (r) => {
  * @param {array} r : straigh / linear Equation i.e [aX, ,bY, constant] 
  * @return {number} : slope
  */
-export const getStraighSlope = ([a,b]) => {
+export const getStraightSlope = ([a,b]) => {
    return - a / b
 }
 
@@ -104,7 +104,7 @@ export default {
    genSlopeValues,
    getDistanceBetweenTwoPoints,
    getSlopeAngle,
-   getStraighSlope,
+   getStraightSlope,
    multiplyLinearEquation,
    getEquationWithPositiveX,
    getDistanceBetweenTwoPoints
