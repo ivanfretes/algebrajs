@@ -90,6 +90,7 @@ export const getSlopeAngle = (slopeValue) => {
 
 
 /**
+ * 
  * Get the distance between two points
  * @param {number} x - only one value or substrac operation (x2 - x1) 
  * @param {number} y - only one value or substrac operation (y2 - y1)  
@@ -97,6 +98,20 @@ export const getSlopeAngle = (slopeValue) => {
  */
 export const getDistanceBetweenTwoPoints = (x, y) => {
    return Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
+}
+
+
+/**
+ * Fixed to float value 
+ * @example = 0,1234 fix to 0,123
+ * 
+ * @param {*} val 
+ * @param {*} decimals
+ * @returns 
+ */
+export const toFixedFloat = (val, decimals) => {
+   const fixed = Number.parseFloat(val).toFixed(decimals)
+   return parseFloat(fixed);
 }
 
 
@@ -113,29 +128,29 @@ export const getPointOfIntersection2 = (a, b, c, d) => {
    const r2 = genLinearEquation(c, d)
 
    // Get the distance of two straight
-   const d1 = getDistanceBetweenTwoPoints(a[0] - b[0], a[1] - b[1])
-   const d2 = getDistanceBetweenTwoPoints(c[0] - d[0], c[1] - d[1])
+   // We use "toFixedFloat" for the sqr of getDistanceBetweenTwoPoints get the minimun variant 
+   const d1 = toFixedFloat(getDistanceBetweenTwoPoints(a[0] - b[0], a[1] - b[1]),10)
+   const d2 = toFixedFloat(getDistanceBetweenTwoPoints(c[0] - d[0], c[1] - d[1]),10)
 
    // Point of intersection
    const [x,y] = getPointOfIntersection(r1, r2);
-
+   
    // Create distances of intersectionPoint to four points
-   const distances = [
-      getDistanceBetweenTwoPoints(a[0] - x, a[1] - y), // to point a
-      getDistanceBetweenTwoPoints(b[0] - x, b[1] - y), // to point b
-      getDistanceBetweenTwoPoints(c[0] - x, c[1] - y), // to point c
-      getDistanceBetweenTwoPoints(d[0] - x, d[1] - y)  // to point d
-   ];
+   const d_ia = getDistanceBetweenTwoPoints(a[0] - x, a[1] - y);
+   const d_ib = getDistanceBetweenTwoPoints(b[0] - x, b[1] - y);
+   const d_ic = getDistanceBetweenTwoPoints(c[0] - x, c[1] - y); 
+   const d_id = getDistanceBetweenTwoPoints(d[0] - x, d[1] - y);
 
-   for (let i = 0; i < distances.length; i++) {
-      const distance = distances[i];
-      if (distance < d1 && distance < d2)
-         continue;
-
-      return null;
-   }
-
-   return [x,y]
+   // The sum distance of intersection
+   const sum_iab = toFixedFloat(d_ia + d_ib, 10)
+   const sum_icd = toFixedFloat(d_ic + d_id, 10)
+   console.log(sum_iab, sum_icd);
+   console.log(d1, d2);
+   
+   if (sum_iab === d1 && sum_icd === d2) 
+      return [x,y]
+      
+   return null
 }
 
 export default {
@@ -147,5 +162,6 @@ export default {
    multiplyLinearEquation,
    getEquationWithPositiveX,
    getDistanceBetweenTwoPoints,
-   getPointOfIntersection2
+   getPointOfIntersection2,
+   toFixedFloat
 }

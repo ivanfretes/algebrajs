@@ -153,4 +153,19 @@ describe('algebraic operations', () => {
 
       expect(intersection).toEqual(null)
    });
+
+   it('getPointOfIntersectionWithoutLineProjection: get intersection with lat and lng array ', () => {
+
+      // setup
+      const a = [-25.263816714705655, -57.46937528012696] 
+      const b = [-25.263797309409963, -57.46016993878785]
+      const c = [-25.259857970166312, -57.468259481176766]
+      const d = [-25.266281162046635, -57.46888175366822]
+
+      // act
+      const intersection = getPointOfIntersection2(a,b,c,d);
+      
+      // assert
+      expect(intersection).toEqual([-25.263815170710057, -57.468642850860775])
+   });
 })
