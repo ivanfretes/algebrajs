@@ -1,4 +1,5 @@
 /**
+ * @todo look case when slope is 90°
  * @param {array} point1 : i.e [1,2] - Init point of Equation
  * @param {array} point2 : i.e [3,4] - End point of Equation
  * @return {array} : [constantX, ,constantY, C] => myX + mxY + constant
@@ -99,6 +100,45 @@ export const getDistanceBetweenTwoPoints = (x, y) => {
 }
 
 
+/**
+ * Get clear intersection, consider only the real segment, not the projection of straight
+ * @param {array} a 
+ * @param {array} b 
+ * @param {array} c 
+ * @param {array} d 
+ */
+export const getPointOfIntersection2 = (a, b, c, d) => {
+   // Generate the linear equation
+   const r1 = genLinearEquation(a, b)
+   const r2 = genLinearEquation(c, d)
+
+   // Get the distance of two straight
+   const d1 = getDistanceBetweenTwoPoints(a[0] - b[0], a[1] - b[1])
+   const d2 = getDistanceBetweenTwoPoints(c[0] - d[0], c[1] - d[1])
+
+   // Point of intersection
+   const [x,y] = getPointOfIntersection(r1, r2);
+
+   // Create distances of intersectionPoint to four points
+   const distances = [
+      getDistanceBetweenTwoPoints(a[0] - x, a[1] - y), // to point a
+      getDistanceBetweenTwoPoints(b[0] - x, b[1] - y), // to point b
+      getDistanceBetweenTwoPoints(c[0] - x, c[1] - y), // to point c
+      getDistanceBetweenTwoPoints(d[0] - x, d[1] - y)  // to point d
+   ];
+
+   for (let i = 0; i < distances.length; i++) {
+      const distance = distances[i];
+      console.log(distance, d1, d2)
+      if (distance < d1 && distance < d2)
+         continue;
+
+      return null;
+   }
+
+   return [x,y]
+}
+
 export default {
    genLinearEquation,
    genSlopeValues,
@@ -107,5 +147,6 @@ export default {
    getStraightSlope,
    multiplyLinearEquation,
    getEquationWithPositiveX,
-   getDistanceBetweenTwoPoints
+   getDistanceBetweenTwoPoints,
+   getPointOfIntersection2
 }

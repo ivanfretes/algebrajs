@@ -5,7 +5,8 @@ import {
    getEquationWithPositiveX,
    multiplyLinearEquation,
    getSlopeAngle,
-   getDistanceBetweenTwoPoints
+   getDistanceBetweenTwoPoints,
+   getPointOfIntersection2
 } from "../src/index";
 
 describe('algebraic operations', () => { 
@@ -124,7 +125,32 @@ describe('algebraic operations', () => {
       expect(distance).toEqual(5)
    });
 
-   it.only('getIntersectionWithoutStraighttLineProjection  ', () => {
-      
+   it('getPointOfIntersectionWithoutLineProjection: get the correct intersection', () => {
+      // setup
+      const a = [1,1]
+      const b = [4,5]
+      const c = [4,1]
+      const d = [1,4] 
+
+      // act
+      const intersection = getPointOfIntersection2(a,b,c,d);
+      // assert
+
+      expect(intersection).toEqual([2.285714285714286, 2.7142857142857144])
+   });
+
+   it('getPointOfIntersectionWithoutLineProjection: intesection no get linear projection ', () => {
+
+      // setup
+      const a = [1,3]
+      const b = [6,6]
+      const c = [6,4]
+      const d = [10,1] 
+
+      // act
+      const intersection = getPointOfIntersection2(a,b,c,d);
+      // assert
+
+      expect(intersection).toEqual(null)
    });
 })
