@@ -129,7 +129,6 @@ export const getPointOfIntersection2 = (a, b, c, d) => {
 
    for (let i = 0; i < distances.length; i++) {
       const distance = distances[i];
-      console.log(distance, d1, d2)
       if (distance < d1 && distance < d2)
          continue;
 
